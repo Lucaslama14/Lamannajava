@@ -6,8 +6,16 @@ const contadorCarrito = document.getElementById('contadorCarrito')
 const cantidad = document.getElementById('cantidad')
 const precioTotal = document.getElementById('precioTotal')
 const cantidadTotal = document.getElementById('cantidadTotal')
+/* const BotonSuma = 
+const BotonResta = */
+
 
 let carrito = []
+
+botonVaciar.addEventListener('click', () => {
+    carrito.length = 0
+    actualizarCarrito()
+})
 
 document.addEventListener('DOMContentLoaded', () => {
     if (localStorage.getItem('carrito')){
@@ -16,10 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 })
 
-botonVaciar.addEventListener('click', () => {
-    carrito.length = 0
-    actualizarCarrito()
-})
+
+
 
 //uso de innerhtml 
 stockProductos.forEach((producto) => {
@@ -37,7 +43,9 @@ stockProductos.forEach((producto) => {
     contenedorProductos.appendChild(div)
     const boton = document.getElementById(`agregar${producto.id}`)
     boton.addEventListener('click', () => {
+        swal.fire('Producto agregado')
         agregarAlCarrito(producto.id)
+        
     })
 })
 
@@ -55,8 +63,10 @@ const agregarAlCarrito = (prodId) => {
         carrito.push(item)
     }
 
-    actualizarCarrito()
+    actualizarCarrito({
+        })
 }
+
 
 const eliminarDelCarrito = (prodId) => {
     const item = carrito.find((prod) => prod.id === prodId)
@@ -75,7 +85,7 @@ const actualizarCarrito = () => {
         <p>${prod.nombre}</p>
         <p>Precio:$${prod.precio}</p>
         <p>Cantidad: <span id="cantidad">${prod.cantidad}</span></p>
-        <button onclick="eliminarDelCarrito(${prod.id})" class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>
+        <button onclick="eliminarDelCarrito(${prod.id})" class="boton-eliminar"> <i class="fas fa-trash-alt"></i></button>
         `
 
         contenedorCarrito.appendChild(div)

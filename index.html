@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./fotos/logo.png" />
     <title>LaModerna</title>
     <script src="https://kit.fontawesome.com/df59baf6b8.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,10 +22,11 @@
 </head>
 
 <body>
+
     <header>
         <img  class="logo" src="/fotos/logo.png" alt="Logo Calzados la moderna" >
         <h1 id="titulo" class="titulo">La Moderna</h1>
-        <button  id="boton-carrito"><i class="fas fa-shopping-cart"></i></button>
+        <button  id="boton-carrito"><i class="fas fa-shopping-cart"></i><span id=contadorCarrito>0</span></button>
     </header>
     <main id="contenedor-productos">
     </main>
@@ -36,18 +38,19 @@
             <div id="carrito-contenedor">
                  <div class="productoEnCarrito">
                     <button class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>
-                </div> -->
+                </div> 
             </div>
             <p class="precioProducto">Precio total: $<span id="precioTotal">0</span></p>
             <button id="vaciar-carrito" class="boton-agregar">Vaciar carrito</button>
         </div>
     </div>
 
-    <script defer src="cliente.js"></script>
+
+    <script defer src="cliente.js"></script> 
     <script defer src="main.js"></script>
     <script defer src="modal.js"></script>
     <script defer src="app.js"></script>
-
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>
